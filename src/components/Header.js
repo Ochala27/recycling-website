@@ -1,18 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <header>
-            <h1>Welcome to the Recycling Home Page</h1>
+            <h1>Welcome to Clean4Saver Recycling</h1>
             <nav>
                 <ul>
-                    <li><button onClick={() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' })}>Home</button></li>
-                    <li><button onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}>Services</button></li>
-                    <li><button onClick={() => document.getElementById('request-pickup').scrollIntoView({ behavior: 'smooth' })}>Request Pick Up</button></li>
-                    <li><button onClick={() => document.getElementById('customer-care').scrollIntoView({ behavior: 'smooth' })}>Customer Care</button></li>
-                    <li><button onClick={() => document.getElementById('faq').scrollIntoView({ behavior: 'smooth' })}>FAQ</button></li>
-                    <li><button onClick={() => document.getElementById('login').scrollIntoView({ behavior: 'smooth' })}>Login</button></li>
-                    <li><button onClick={() => document.getElementById('signup').scrollIntoView({ behavior: 'smooth' })}>Sign Up</button></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/services">Services</Link></li>
+                    <li><Link to="/request-pickup">Request Pick Up</Link></li>
+                    <li><Link to="/customer-care">Customer Care</Link></li>
+                    <li><Link to="/faq">FAQ</Link></li>
+                    <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/signup">Sign Up</Link></li>
                 </ul>
             </nav>
         </header>

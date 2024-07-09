@@ -6,11 +6,11 @@ const FAQ = () => {
             <div className="faq-background">
                 <h2>FAQ</h2>
                 <div className="faq-item">
-                    <h3>What is Kavv?</h3>
-                    <p>Kavv is a recycling company in Nigeria providing reliable collection services, extensive recycling programs, and rewards for participation.</p>
+                    <h3>What is Clean4Saver?</h3>
+                    <p>Clean4Saver is a recycling company in Nigeria providing reliable collection services, extensive recycling programs, and rewards for participation.</p>
                 </div>
                 <div className="faq-item">
-                    <h3>What can I recycle with Kavv?</h3>
+                    <h3>What can I recycle with Clean4Saver?</h3>
                     <p>You can recycle food waste, rubber products, glass, and paper.</p>
                 </div>
                 <div className="faq-item">

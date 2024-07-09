@@ -5,6 +5,7 @@ const Header = () => {
     return (
         <header>
             <h1>Welcome to Clean4Saver Recycling</h1>
+            
             <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>

@@ -134,3 +134,160 @@ section {
     }
 }
 
+.services-section {
+    background-image: url('./components/image/background-services.jpg'); /* Update this path to your actual image path */
+    background-size: cover;
+    background-position: center;
+    color: #CCCCCC; /* White text color for contrast */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow for better visual separation */
+    position: relative; /* Ensures the overlay covers the entire section */
+}
+
+.services-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay for better text readability */
+    border-radius: 8px;
+    z-index: 1; /* Ensures the overlay is above the background image */
+}
+
+.services-section h2, .services-section h3, .services-section p {
+    position: relative; /* Ensures the text is above the overlay */
+    z-index: 2; /* Ensures the text is above the overlay */
+}
+
+.services-section p strong {
+    color: #CCCCCC; /* Yellow color for emphasis within the text */
+}
+
+/* CustomerCare.css */
+
+.customer-care-section {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto; /* Center the section */
+}
+
+.customer-care-background {
+    background-image: url('./components/image/background-care.jpg'); /* Update this path to your actual image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
+}
+
+.customer-care-background h2 {
+    color: #4CAF50; /* Green color for the heading */
+    margin-bottom: 20px;
+}
+
+.customer-care-background p {
+    color: #333; /* Darker color for text */
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    flex: 1 1 250px; /* Flexbox for responsive layout */
+}
+
+.contact-item h3 {
+    color: #4CAF50; /* Green color for sub-headings */
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    color: #555; /* Grey color for text */
+    margin-bottom: 10px;
+}
+
+.contact-item a {
+    color: #4CAF50; /* Green color for links */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: black; /* Darker green on hover */
+}
+
+
+/* FAQ.css */
+
+.faq-section {
+    position: relative;
+    padding: 40px 20px;
+    text-align: left; /* Left align text for readability */
+    max-width: 800px;
+    margin: 0 auto; /* Center the section */
+}
+
+.faq-background {
+    background-image: url('./components/image/background-faq.jpg'); /* Update this path to your actual image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
+    color: white; /* Ensure text is readable on the background image */
+    position: relative;
+    z-index: 1;
+}
+
+.faq-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent overlay for better readability */
+    border-radius: 8px;
+    z-index: -1;
+}
+
+.faq-background h2 {
+    color: #4CAF50; /* Green color for the heading */
+    margin-bottom: 20px;
+    text-align: center; /* Center align the heading */
+}
+
+.faq-background p {
+    color: #fff; /* White color for text */
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.faq-item h3 {
+    color: #4CAF50; /* Green color for sub-headings */
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    color: #333; /* Darker color for text */
+}

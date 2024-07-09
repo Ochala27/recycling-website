@@ -135,7 +135,7 @@ section {
 }
 
 .services-section {
-    background-image: url('./components/image/background-services.jpg'); /* Update this path to your actual image path */
+    background-image: url('./components/image/background-services.png'); /* Update this path to your actual image path */
     background-size: cover;
     background-position: center;
     color: #CCCCCC; /* White text color for contrast */
@@ -290,4 +290,280 @@ section {
 
 .faq-item p {
     color: #333; /* Darker color for text */
+}
+
+/* RequestPickup.css */
+
+.request-pickup-section {
+    background-color: grey; /* Light background color */
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
+    text-align: left; /* Left align text for readability */
+    max-width: 600px;
+    margin: 0 auto; /* Center the section */
+}
+
+.request-pickup-section h2 {
+    color: #4CAF50; /* Green color for the heading */
+    margin-bottom: 20px;
+    text-align: center; /* Center align the heading */
+}
+
+.request-pickup-section p {
+    color: #333; /* Darker color for text */
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    color: #555; /* Grey color for labels */
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50; /* Green color for submit button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.confirmation-message {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.confirmation-message h3 {
+    color: #4CAF50; /* Green color for sub-headings */
+    margin-bottom: 10px;
+}
+
+.confirmation-message p {
+    color: #333; /* Darker color for text */
+}
+
+
+/* SignUp.css */
+
+.sign-up-section {
+    position: relative;
+    padding: 40px 20px;
+    text-align: left; /* Left align text for readability */
+    max-width: 600px;
+    margin: 0 auto; /* Center the section */
+}
+
+.sign-up-background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
+    color: white; /* Ensure text is readable on the background image */
+    position: relative;
+    z-index: 1;
+}
+
+.sign-up-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent overlay for better readability */
+    border-radius: 8px;
+    z-index: -1;
+}
+
+.sign-up-background h2 {
+    color: #4CAF50; /* Green color for the heading */
+    margin-bottom: 20px;
+    text-align: center; /* Center align the heading */
+}
+
+.sign-up-background p {
+    color: #fff; /* White color for text */
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    color: #fff; /* White color for labels */
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button[type="submit"],
+button {
+    background-color: #4CAF50; /* Green color for submit button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover,
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.confirmation-message {
+    background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.confirmation-message h3 {
+    color: #4CAF50; /* Green color for sub-headings */
+    margin-bottom: 10px;
+}
+
+.confirmation-message p {
+    color: #333; /* Darker color for text */
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 20px;
+}
+
+/* Login.css */
+
+.login-section {
+    position: relative;
+    padding: 40px 20px;
+    text-align: left; /* Left align text for readability */
+    max-width: 600px;
+    margin: 0 auto; /* Center the section */
+}
+
+.login-background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
+    color: white; /* Ensure text is readable on the background image */
+    position: relative;
+    z-index: 1;
+}
+
+.login-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent overlay for better readability */
+    border-radius: 8px;
+    z-index: -1;
+}
+
+.login-background h2 {
+    color: #4CAF50; /* Green color for the heading */
+    margin-bottom: 20px;
+    text-align: center; /* Center align the heading */
+}
+
+.login-background p {
+    color: #fff; /* White color for text */
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    color: #fff; /* White color for labels */
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50; /* Green color for submit button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.confirmation-message {
+    background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.confirmation-message h3 {
+    color: #4CAF50; /* Green color for sub-headings */
+    margin-bottom: 10px;
+}
+
+.confirmation-message p {
+    color: #333; /* Darker color for text */
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 20px;
 }

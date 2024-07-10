@@ -17,14 +17,18 @@ const Login = () => {
         });
     };
 
+    const validatePassword = (password) => {
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+        return passwordRegex.test(password);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Example validation logic
-        if (formData.email === 'user@example.com' && formData.password === 'Password123!') {
+        if (validatePassword(formData.password)) {
             setLoggedIn(true);
             setError('');
         } else {
-            setError('Invalid email or password.');
+            setError('Invalid password. It must be at least 8 characters long, contain one uppercase letter, and one symbol.');
         }
     };
 

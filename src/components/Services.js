@@ -4,7 +4,7 @@ const Services = () => {
     return (
         <section id="services" className="services-section">
             <h2>Our Collection Service</h2>
-            <p>Our recycling service is convenient, efficient, and rewarding. Here’s how it works:</p>
+            <p>Our recycling service is convenient, efficient, and rewarding. Here’s how it works</p>
             <h3>Three Bin System</h3>
             <p><strong>Food Waste Bin:</strong> For organic waste like food scraps and biodegradable materials.</p>
             <p><strong>Rubber Waste Bin:</strong> For items such as tires, rubber gloves, and rubber bands.</p>
@@ -16,7 +16,6 @@ const Services = () => {
             <h3>Rewards Program</h3>
             <p><strong>Earn Points:</strong> Residents earn points for each pick-up.</p>
             <p><strong>Redeem Rewards:</strong> Points can be exchanged for eco-friendly products and services.</p>
-            <p><strong>Additional Rewards:</strong> Extra gifts may be given at pick-up to motivate consistent recycling.</p>
         </section>
     );
 };

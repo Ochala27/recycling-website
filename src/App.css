@@ -225,7 +225,6 @@ section {
     color: #CCCCCC; /* Yellow color for emphasis within the text */
 }
 
-
 /* CustomerCare.css */
 
 .customer-care-section {
@@ -288,6 +287,58 @@ section {
 .contact-item a:hover {
     color: black; /* Darker green on hover */
 }
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .customer-care-background {
+        padding: 30px 15px;
+    }
+
+    .contact-item {
+        flex: 1 1 200px;
+    }
+}
+
+@media (max-width: 992px) {
+    .customer-care-background {
+        padding: 25px 10px;
+    }
+
+    .contact-item {
+        flex: 1 1 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .customer-care-background {
+        padding: 20px 5px;
+    }
+
+    .contact-item {
+        flex: 1 1 100%;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .customer-care-background {
+        padding: 15px 5px;
+    }
+
+    .contact-item {
+        flex: 1 1 100%;
+        margin: 5px 0;
+    }
+
+    .customer-care-background h2 {
+        font-size: 1.5em;
+    }
+
+    .customer-care-background p {
+        font-size: 1em;
+    }
+}
+
 
 
 /* FAQ.css */

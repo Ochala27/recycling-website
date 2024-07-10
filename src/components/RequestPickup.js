@@ -24,6 +24,11 @@ const RequestPickup = () => {
         setSubmitted(true);
     };
 
+    const handleBackToHome = () => {
+        // logic to navigate back to the home section
+        window.location.href = '/'; // Assuming '/' is the route to the home section
+    };
+
     return (
         <div className="request-pickup-section">
             <div className="request-pickup-background">
@@ -96,6 +101,7 @@ const RequestPickup = () => {
                         <p><strong>Address:</strong> {formData.address}</p>
                         <p><strong>Preferred Date:</strong> {formData.date}</p>
                         <p><strong>Preferred Time:</strong> {formData.time}</p>
+                        <button onClick={handleBackToHome}>Back to Home</button>
                     </div>
                 )}
             </div>

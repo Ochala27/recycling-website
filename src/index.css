@@ -7,3 +7,28 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0; /* Light background color for better contrast */
 }
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  body {
+    font-size: 18px; /* Adjust font size for large screens */
+  }
+}
+
+@media (max-width: 992px) {
+  body {
+    font-size: 16px; /* Adjust font size for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px; /* Adjust font size for small screens */
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: 12px; /* Adjust font size for extra small screens */
+  }
+}

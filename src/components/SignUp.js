@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Login from './Login'; // Import the Login component
+import Header from './Header';
 
 const SignUp = () => {
     const [formData, setFormData] = useState({
@@ -45,68 +46,71 @@ const SignUp = () => {
     }
 
     return (
-        <div className="sign-up-section">
-            <div className="sign-up-background">
-                <h2>Sign Up</h2>
-                {!submitted ? (
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="name">Customer Name:</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                required
-                            />
+        <div>
+            <Header />
+            <div className="sign-up-section">
+                <div className="sign-up-background">
+                    <h2>Sign Up</h2>
+                    {!submitted ? (
+                        <form onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="name">Customer Name:</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="email">Email Address:</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="address">Address:</label>
+                                <input
+                                    type="text"
+                                    id="address"
+                                    name="address"
+                                    value={formData.address}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="password">Password:</label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            {error && <p className="error-message">{error}</p>}
+                            <button type="submit">Submit</button>
+                        </form>
+                    ) : (
+                        <div className="confirmation-message">
+                            <h3>Thank you for signing up!</h3>
+                            <p>Here are your details:</p>
+                            <p><strong>Customer Name:</strong> {formData.name}</p>
+                            <p><strong>Email Address:</strong> {formData.email}</p>
+                            <p><strong>Address:</strong> {formData.address}</p>
+                            <button onClick={handleOkayClick}>Okay</button>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Email Address:</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="address">Address:</label>
-                            <input
-                                type="text"
-                                id="address"
-                                name="address"
-                                value={formData.address}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="password">Password:</label>
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                value={formData.password}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        {error && <p className="error-message">{error}</p>}
-                        <button type="submit">Submit</button>
-                    </form>
-                ) : (
-                    <div className="confirmation-message">
-                        <h3>Thank you for signing up!</h3>
-                        <p>Here are your details:</p>
-                        <p><strong>Customer Name:</strong> {formData.name}</p>
-                        <p><strong>Email Address:</strong> {formData.email}</p>
-                        <p><strong>Address:</strong> {formData.address}</p>
-                        <button onClick={handleOkayClick}>Okay</button>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </div>
     );

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Header from './Header';
+import ForgotPassword from './Forgetpassword'; // Import the ForgotPassword component
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -8,6 +10,7 @@ const Login = () => {
 
     const [loggedIn, setLoggedIn] = useState(false);
     const [error, setError] = useState('');
+    const [showForgotPassword, setShowForgotPassword] = useState(false); // State to handle view switch
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,13 +30,25 @@ const Login = () => {
         if (validatePassword(formData.password)) {
             setLoggedIn(true);
             setError('');
+            setFormData({ email: '', password: '' }); // Clear form fields
         } else {
             setError('Invalid password. It must be at least 8 characters long, contain one uppercase letter, and one symbol.');
         }
     };
 
+    const handleForgotPassword = () => {
+        setShowForgotPassword(true); // Show forgot password form
+    };
+
+    const isFormValid = formData.email && formData.password;
+
+    if (showForgotPassword) {
+        return <ForgotPassword />;
+    }
+
     return (
         <div className="login-section">
+            <Header />
             <div className="login-background">
                 <h2>Login</h2>
                 {!loggedIn ? (
@@ -61,7 +76,10 @@ const Login = () => {
                             />
                         </div>
                         {error && <p className="error-message">{error}</p>}
-                        <button type="submit">Submit</button>
+                        <div className="button-group">
+                            <button type="submit" disabled={!isFormValid} className="submit-button">Submit</button>
+                            <button type="button" className="forgot-password-button" onClick={handleForgotPassword}>Forgot Password?</button>
+                        </div>
                     </form>
                 ) : (
                     <div className="confirmation-message">

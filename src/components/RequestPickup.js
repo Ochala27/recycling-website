@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
+import Header from './Header';
+import ForgotPassword from './Forgetpassword'; // Import the ForgotPassword component
 
-const RequestPickup = () => {
+const Login = () => {
     const [formData, setFormData] = useState({
-        name: '',
         email: '',
-        address: '',
-        date: '',
-        time: ''
+        password: ''
     });
 
-    const [submitted, setSubmitted] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [error, setError] = useState('');
+    const [showForgotPassword, setShowForgotPassword] = useState(false); // State to handle view switch
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -19,33 +20,39 @@ const RequestPickup = () => {
         });
     };
 
+    const validatePassword = (password) => {
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+        return passwordRegex.test(password);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        setSubmitted(true);
+        if (validatePassword(formData.password)) {
+            setLoggedIn(true);
+            setError('');
+            setFormData({ email: '', password: '' }); // Clear form fields
+        } else {
+            setError('Invalid password. It must be at least 8 characters long, contain one uppercase letter, and one symbol.');
+        }
     };
 
-    const handleBackToHome = () => {
-        // logic to navigate back to the home section
-        window.location.href = '/'; // Assuming '/' is the route to the home section
+    const handleForgotPassword = () => {
+        setShowForgotPassword(true); // Show forgot password form
     };
+
+    const isFormValid = formData.email && formData.password;
+
+    if (showForgotPassword) {
+        return <ForgotPassword />;
+    }
 
     return (
-        <div className="request-pickup-section">
-            <div className="request-pickup-background">
-                <h2>Request Pick Up</h2>
-                {!submitted ? (
+        <div className="login-section">
+            <Header />
+            <div className="login-background">
+                <h2>Login</h2>
+                {!loggedIn ? (
                     <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="name">Customer Name:</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
                         <div className="form-group">
                             <label htmlFor="email">Email Address:</label>
                             <input
@@ -58,50 +65,26 @@ const RequestPickup = () => {
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="address">Address:</label>
+                            <label htmlFor="password">Password:</label>
                             <input
-                                type="text"
-                                id="address"
-                                name="address"
-                                value={formData.address}
+                                type="password"
+                                id="password"
+                                name="password"
+                                value={formData.password}
                                 onChange={handleChange}
                                 required
                             />
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="date">Preferred Date:</label>
-                            <input
-                                type="date"
-                                id="date"
-                                name="date"
-                                value={formData.date}
-                                onChange={handleChange}
-                                required
-                            />
+                        {error && <p className="error-message">{error}</p>}
+                        <div className="button-group">
+                            <button type="submit" disabled={!isFormValid} className="submit-button">Submit</button>
+                            <button type="button" className="forgot-password-button" onClick={handleForgotPassword}>Forgot Password?</button>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="time">Preferred Time:</label>
-                            <input
-                                type="time"
-                                id="time"
-                                name="time"
-                                value={formData.time}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <button type="submit">Submit</button>
                     </form>
                 ) : (
                     <div className="confirmation-message">
-                        <h3>Thank you for your request!</h3>
-                        <p>We have received your pickup request. Here are the details:</p>
-                        <p><strong>Customer Name:</strong> {formData.name}</p>
-                        <p><strong>Email Address:</strong> {formData.email}</p>
-                        <p><strong>Address:</strong> {formData.address}</p>
-                        <p><strong>Preferred Date:</strong> {formData.date}</p>
-                        <p><strong>Preferred Time:</strong> {formData.time}</p>
-                        <button onClick={handleBackToHome}>Back to Home</button>
+                        <h3>Welcome back!</h3>
+                        <p>You have successfully logged in.</p>
                     </div>
                 )}
             </div>
@@ -109,4 +92,4 @@ const RequestPickup = () => {
     );
 };
 
-export default RequestPickup;
+export default Login;

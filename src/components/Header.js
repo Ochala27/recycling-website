@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <header>
-            <h1>Welcome to Clean4Saver Recycling</h1>
+            <h1>Clean4Saver Recycling</h1>
             
             <nav>
                 <ul>

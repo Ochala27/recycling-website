@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f0f0f0; /* Light background color for better contrast */
+    background-color: #f0f0f0;
 }
 
 html, body, #root {
@@ -88,25 +88,25 @@ nav ul li a:hover {
 
 /* Main Content Styles */
 .main-content {
-    background-image: url('./components/image/background-image.jpg'); /* Ensure this path is correct */
+    background-image: url('./components/image/background-image.jpg');
     background-size: cover;
     background-attachment: fixed;
     padding: 20px;
     color: white;
-    min-height: 100vh; /* Ensure the background covers the entire viewport */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: vertical; /* Corrected text alignment */
+    text-align: vertical;
 }
 
 h2 {
-    font-size: 2em; /* Larger than paragraph text */
+    font-size: 2em;
     margin-bottom: 0.5em;
 }
 
 p {
-    font-size: 1em; /* Standard paragraph size */
+    font-size: 1em;
     margin-bottom: 1em;
 }
 
@@ -124,7 +124,7 @@ h3 {
 .testimonial h4 {
     font-size: 1.2em;
     margin-top: 0;
-    color: #45a049; /* Blue color for names */
+    color: #45a049;
 }
 
 /* Additional styling for sections */
@@ -139,23 +139,20 @@ section {
 
 /* Style for mission text */
 .mission-text {
-    font-family: 'Courier New', Courier, monospace; /* Change this to the desired font */
-    font-size: 1.2em; /* Adjust the size if necessary */
-    /*color: #FFD700; Example color, change as needed */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em; 
 }
 
 /* Style for partnership text */
 .partnership-text {
-    font-family: 'Times New Roman', Times, serif; /* Change this to the desired font */
-    font-size: 1.2em; /* Adjust the size if necessary */
-    /*color: #FFD700; Example color, change as needed */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2em;
 }
 
 /* Style for feature text */
 .feature-text {
-    font-family: 'Georgia', serif; /* Change this to the desired font */
-    font-size: 1.2em; /* Adjust the size if necessary */
-    /*color: #FFD700;  Example color, change as needed */
+    font-family: 'Georgia', serif;
+    font-size: 1.2em;
 }
 
 
@@ -194,14 +191,14 @@ section {
 }
 
 .services-section {
-    background-image: url('./components/image/background-services.png'); /* Update this path to your actual image path */
+    background-image: url('./components/image/background-services.png');
     background-size: cover;
     background-position: center;
-    color: #CCCCCC; /* White text color for contrast */
+    color: #CCCCCC;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow for better visual separation */
-    position: relative; /* Ensures the overlay covers the entire section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .services-section::before {
@@ -211,18 +208,18 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay for better text readability */
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 8px;
-    z-index: 1; /* Ensures the overlay is above the background image */
+    z-index: 1;
 }
 
 .services-section h2, .services-section h3, .services-section p {
-    position: relative; /* Ensures the text is above the overlay */
-    z-index: 2; /* Ensures the text is above the overlay */
+    position: relative; /* text is above the overlay */
+    z-index: 2; /*the text is above the overlay */
 }
 
 .services-section p strong {
-    color: #CCCCCC; /* Yellow color for emphasis within the text */
+    color: #CCCCCC;
 }
 
 /* CustomerCare.css */
@@ -234,22 +231,22 @@ section {
 }
 
 .customer-care-background {
-    background-image: url('./components/image/background-care.jpg'); /* Update this path to your actual image path */
+    background-image: url('./components/image/background-care.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 40px 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .customer-care-background h2 {
-    color: #4CAF50; /* Green color for the heading */
+    color: #4CAF50;
     margin-bottom: 20px;
 }
 
 .customer-care-background p {
-    color: #333; /* Darker color for text */
+    color: #333;
     margin-bottom: 20px;
 }
 
@@ -269,23 +266,23 @@ section {
 }
 
 .contact-item h3 {
-    color: #4CAF50; /* Green color for sub-headings */
+    color: #4CAF50;
     margin-bottom: 10px;
 }
 
 .contact-item p {
-    color: #555; /* Grey color for text */
+    color: #555;
     margin-bottom: 10px;
 }
 
 .contact-item a {
-    color: #4CAF50; /* Green color for links */
+    color: #4CAF50;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .contact-item a:hover {
-    color: black; /* Darker green on hover */
+    color: black;
 }
 
 /* Responsive Design */
@@ -346,20 +343,20 @@ section {
 .faq-section {
     position: relative;
     padding: 40px 20px;
-    text-align: left; /* Left align text for readability */
+    text-align: left;
     max-width: 800px;
-    margin: 0 auto; /* Center the section */
+    margin: 0 auto;
 }
 
 .faq-background {
-    background-image: url('./components/image/background-faq.jpg'); /* Update this path to your actual image path */
+    background-image: url('./components/image/background-faq.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 40px 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
-    color: white; /* Ensure text is readable on the background image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
     position: relative;
     z-index: 1;
 }
@@ -371,58 +368,58 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent overlay for better readability */
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     z-index: -1;
 }
 
 .faq-background h2 {
-    color: #4CAF50; /* Green color for the heading */
+    color: #4CAF50;
     margin-bottom: 20px;
-    text-align: center; /* Center align the heading */
+    text-align: center;
 }
 
 .faq-background p {
-    color: #fff; /* White color for text */
+    color: #fff;
     margin-bottom: 20px;
 }
 
 .faq-item {
-    background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 8px;
     margin: 10px 0;
 }
 
 .faq-item h3 {
-    color: #4CAF50; /* Green color for sub-headings */
+    color: #4CAF50;
     margin-bottom: 10px;
 }
 
 .faq-item p {
-    color: #333; /* Darker color for text */
+    color: #333;
 }
 
 /* RequestPickup.css */
 
 .request-pickup-section {
-    background-color: grey; /* Light background color */
+    background-color: grey;
     padding: 40px 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
-    text-align: left; /* Left align text for readability */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
     max-width: 600px;
-    margin: 0 auto; /* Center the section */
+    margin: 0 auto;
 }
 
 .request-pickup-section h2 {
-    color: #4CAF50; /* Green color for the heading */
+    color: #4CAF50;
     margin-bottom: 20px;
-    text-align: center; /* Center align the heading */
+    text-align: center;
 }
 
 .request-pickup-section p {
-    color: #333; /* Darker color for text */
+    color: #333;
     margin-bottom: 20px;
 }
 
@@ -432,7 +429,7 @@ section {
 
 .form-group label {
     display: block;
-    color: #555; /* Grey color for labels */
+    color: #555;
     margin-bottom: 5px;
 }
 
@@ -445,7 +442,7 @@ section {
 }
 
 button[type="submit"] {
-    background-color: #4CAF50; /* Green color for submit button */
+    background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -455,7 +452,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
 }
 
 .confirmation-message {
@@ -468,12 +465,12 @@ button[type="submit"]:hover {
 }
 
 .confirmation-message h3 {
-    color: #4CAF50; /* Green color for sub-headings */
+    color: #4CAF50;
     margin-bottom: 10px;
 }
 
 .confirmation-message p {
-    color: #333; /* Darker color for text */
+    color: #333;
 }
 
 
@@ -482,9 +479,9 @@ button[type="submit"]:hover {
 .sign-up-section {
     position: relative;
     padding: 40px 20px;
-    text-align: left; /* Left align text for readability */
+    text-align: left;
     max-width: 600px;
-    margin: 0 auto; /* Center the section */
+    margin: 0 auto;
 }
 
 .sign-up-background {
@@ -493,8 +490,8 @@ button[type="submit"]:hover {
     background-repeat: no-repeat;
     padding: 40px 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
-    color: white; /* Ensure text is readable on the background image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
     position: relative;
     z-index: 1;
 }
@@ -506,19 +503,19 @@ button[type="submit"]:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent overlay for better readability */
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     z-index: -1;
 }
 
 .sign-up-background h2 {
-    color: #4CAF50; /* Green color for the heading */
+    color: #4CAF50;
     margin-bottom: 20px;
-    text-align: center; /* Center align the heading */
+    text-align: center;
 }
 
 .sign-up-background p {
-    color: #fff; /* White color for text */
+    color: #fff;
     margin-bottom: 20px;
 }
 
@@ -528,7 +525,7 @@ button[type="submit"]:hover {
 
 .form-group label {
     display: block;
-    color: #fff; /* White color for labels */
+    color: #fff;
     margin-bottom: 5px;
 }
 
@@ -542,7 +539,7 @@ button[type="submit"]:hover {
 
 button[type="submit"],
 button {
-    background-color: #4CAF50; /* Green color for submit button */
+    background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -553,11 +550,11 @@ button {
 
 button[type="submit"]:hover,
 button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
 }
 
 .confirmation-message {
-    background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -566,12 +563,12 @@ button:hover {
 }
 
 .confirmation-message h3 {
-    color: #4CAF50; /* Green color for sub-headings */
+    color: #4CAF50;
     margin-bottom: 10px;
 }
 
 .confirmation-message p {
-    color: #333; /* Darker color for text */
+    color: #333;
 }
 
 .error-message {
@@ -584,9 +581,9 @@ button:hover {
 .login-section {
     position: relative;
     padding: 40px 20px;
-    text-align: left; /* Left align text for readability */
+    text-align: left;
     max-width: 600px;
-    margin: 0 auto; /* Center the section */
+    margin: 0 auto;
 }
 
 .login-background {
@@ -595,8 +592,8 @@ button:hover {
     background-repeat: no-repeat;
     padding: 40px 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
-    color: white; /* Ensure text is readable on the background image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white; 
     position: relative;
     z-index: 1;
 }
@@ -608,19 +605,19 @@ button:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent overlay for better readability */
+    background: rgba(0, 0, 0, 0.5); 
     border-radius: 8px;
     z-index: -1;
 }
 
 .login-background h2 {
-    color: #4CAF50; /* Green color for the heading */
+    color: #4CAF50;
     margin-bottom: 20px;
-    text-align: center; /* Center align the heading */
+    text-align: center;
 }
 
 .login-background p {
-    color: #fff; /* White color for text */
+    color: #fff;
     margin-bottom: 20px;
 }
 
@@ -630,7 +627,7 @@ button:hover {
 
 .form-group label {
     display: block;
-    color: #fff; /* White color for labels */
+    color: #fff;
     margin-bottom: 5px;
 }
 
@@ -643,7 +640,7 @@ button:hover {
 }
 
 button[type="submit"] {
-    background-color: #4CAF50; /* Green color for submit button */
+    background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -653,11 +650,11 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
 }
 
 .confirmation-message {
-    background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -666,12 +663,12 @@ button[type="submit"]:hover {
 }
 
 .confirmation-message h3 {
-    color: #4CAF50; /* Green color for sub-headings */
+    color: #4CAF50;
     margin-bottom: 10px;
 }
 
 .confirmation-message p {
-    color: #333; /* Darker color for text */
+    color: #333; 
 }
 
 .error-message {
@@ -809,3 +806,177 @@ button[type="submit"]:hover {
     background-color: #228b22;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: white;
+  }
+  
+  main {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+    background-color: #555;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px white;
+  }
+  
+  .welcome-section .basic-info p {
+    margin: 5px 0;
+  }
+  
+  .quick-stats, .contribution-metrics, .messages, .pickup-log {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .quick-stats p, .contribution-metrics p {
+    margin: 5px 0;
+  }
+  
+  .messages li, .pickup-log li {
+    background-color: #45a049;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    margin: 10px 0 5px;
+  }
+  
+  form input {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  form button, button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  form button:hover, button:hover {
+    background-color: #45a049;
+  }
+  
+  /*  AccountSettings component */
+  .account-settings-form {
+    background-color: #555;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .account-settings-form label {
+    color: white;
+  }
+  
+  .account-settings-form input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .account-settings-form button {
+    margin-top: 10px;
+  }
+  
+  .pickup-history-section {
+    background-color: #555;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pickup-history-section h2 {
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .pickup-log {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .pickup-log li {
+    background-color: #45a049;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  .pickup-log li span {
+    font-weight: bold;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    main {
+      padding: 10px;
+    }
+  
+    .section {
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+  
+    form input {
+      padding: 8px;
+    }
+  
+    form button, button {
+      padding: 8px 16px;
+    }
+  
+    .pickup-history-section {
+      padding: 15px;
+    }
+  
+    .pickup-log li {
+      padding: 8px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .section {
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  
+    form label {
+      margin: 8px 0 4px;
+    }
+  
+    form input {
+      padding: 6px;
+    }
+  
+    form button, button {
+      padding: 6px 12px;
+    }
+  
+    .pickup-history-section {
+      padding: 10px;
+    }
+  
+    .pickup-log li {
+      padding: 6px;
+    }
+  }  

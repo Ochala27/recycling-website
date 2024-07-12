@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Headerr from './Headerr';
 
 const RequestPickup = () => {
     const [formData, setFormData] = useState({
@@ -6,10 +7,13 @@ const RequestPickup = () => {
         email: '',
         address: '',
         date: '',
-        time: ''
+        time: '',
+        phase: '',
+        houseNumber: ''
     });
 
     const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -19,18 +23,37 @@ const RequestPickup = () => {
         });
     };
 
+    const validatePhaseNumber = (phase) => {
+        const phaseRegex = /^P\d{2}$/;
+        return phaseRegex.test(phase);
+    };
+
+    const validateHouseNumber = (houseNumber) => {
+        const houseNumberRegex = /^H\d{2}$/;
+        return houseNumberRegex.test(houseNumber);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!validatePhaseNumber(formData.phase)) {
+            setError('Phase number must be one capital letter "P" followed by two numbers.');
+            return;
+        }
+        if (!validateHouseNumber(formData.houseNumber)) {
+            setError('House number must be one capital letter "H" followed by two numbers.');
+            return;
+        }
         setSubmitted(true);
+        setError('');
     };
 
     const handleBackToHome = () => {
-        // logic to navigate back to the home section
-        window.location.href = '/'; // Assuming '/' is the route to the home section
+        window.location.href = '/';
     };
 
     return (
         <div className="request-pickup-section">
+            <Headerr />
             <div className="request-pickup-background">
                 <h2>Request Pick Up</h2>
                 {!submitted ? (
@@ -69,6 +92,28 @@ const RequestPickup = () => {
                             />
                         </div>
                         <div className="form-group">
+                            <label htmlFor="phase">Phase Number:</label>
+                            <input
+                                type="text"
+                                id="phase"
+                                name="phase"
+                                value={formData.phase}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="houseNumber">House Number:</label>
+                            <input
+                                type="text"
+                                id="houseNumber"
+                                name="houseNumber"
+                                value={formData.houseNumber}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
                             <label htmlFor="date">Preferred Date:</label>
                             <input
                                 type="date"
@@ -90,6 +135,7 @@ const RequestPickup = () => {
                                 required
                             />
                         </div>
+                        {error && <p className="error-message">{error}</p>}
                         <button type="submit">Submit</button>
                     </form>
                 ) : (
@@ -99,6 +145,8 @@ const RequestPickup = () => {
                         <p><strong>Customer Name:</strong> {formData.name}</p>
                         <p><strong>Email Address:</strong> {formData.email}</p>
                         <p><strong>Address:</strong> {formData.address}</p>
+                        <p><strong>Phase Number:</strong> {formData.phase}</p>
+                        <p><strong>House Number:</strong> {formData.houseNumber}</p>
                         <p><strong>Preferred Date:</strong> {formData.date}</p>
                         <p><strong>Preferred Time:</strong> {formData.time}</p>
                         <button onClick={handleBackToHome}>Back to Home</button>

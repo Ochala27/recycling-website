@@ -7,7 +7,10 @@ const SignUp = () => {
         name: '',
         email: '',
         address: '',
-        password: ''
+        password: '',
+        confirmPassword: '',
+        phase: '',
+        houseNumber: ''
     });
 
     const [submitted, setSubmitted] = useState(false);
@@ -27,14 +30,42 @@ const SignUp = () => {
         return passwordRegex.test(password);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const validatePhaseNumber = (phase) => {
+        const phaseRegex = /^P\d{2}$/;
+        return phaseRegex.test(phase);
+    };
+
+    const validateHouseNumber = (houseNumber) => {
+        const houseNumberRegex = /^H\d{2}$/;
+        return houseNumberRegex.test(houseNumber);
+    };
+
+    const validateForm = () => {
         if (!validatePassword(formData.password)) {
             setError('Password must be at least 8 characters long, contain one uppercase letter, and one symbol.');
-            return;
+            return false;
         }
-        setSubmitted(true);
+        if (formData.password !== formData.confirmPassword) {
+            setError('Passwords do not match.');
+            return false;
+        }
+        if (!validatePhaseNumber(formData.phase)) {
+            setError('Phase number must be one capital letter "P" followed by two numbers.');
+            return false;
+        }
+        if (!validateHouseNumber(formData.houseNumber)) {
+            setError('House number must be one capital letter "H" followed by two numbers.');
+            return false;
+        }
         setError('');
+        return true;
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (validateForm()) {
+            setSubmitted(true);
+        }
     };
 
     const handleOkayClick = () => {
@@ -87,12 +118,45 @@ const SignUp = () => {
                                 />
                             </div>
                             <div className="form-group">
+                                <label htmlFor="phase">Phase Number:</label>
+                                <input
+                                    type="text"
+                                    id="phase"
+                                    name="phase"
+                                    value={formData.phase}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="houseNumber">House Number:</label>
+                                <input
+                                    type="text"
+                                    id="houseNumber"
+                                    name="houseNumber"
+                                    value={formData.houseNumber}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="form-group">
                                 <label htmlFor="password">Password:</label>
                                 <input
                                     type="password"
                                     id="password"
                                     name="password"
                                     value={formData.password}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="confirmPassword">Confirm Password:</label>
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    name="confirmPassword"
+                                    value={formData.confirmPassword}
                                     onChange={handleChange}
                                     required
                                 />
@@ -107,6 +171,8 @@ const SignUp = () => {
                             <p><strong>Customer Name:</strong> {formData.name}</p>
                             <p><strong>Email Address:</strong> {formData.email}</p>
                             <p><strong>Address:</strong> {formData.address}</p>
+                            <p><strong>Phase Number:</strong> {formData.phase}</p>
+                            <p><strong>House Number:</strong> {formData.houseNumber}</p>
                             <button onClick={handleOkayClick}>Okay</button>
                         </div>
                     )}

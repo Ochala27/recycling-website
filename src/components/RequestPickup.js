@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 import Header from './Header';
 import ForgotPassword from './Forgetpassword'; // Import the ForgotPassword component
 
@@ -11,6 +12,8 @@ const Login = () => {
     const [loggedIn, setLoggedIn] = useState(false);
     const [error, setError] = useState('');
     const [showForgotPassword, setShowForgotPassword] = useState(false); // State to handle view switch
+
+    const navigate = useNavigate(); // Initialize useNavigate
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -85,6 +88,12 @@ const Login = () => {
                     <div className="confirmation-message">
                         <h3>Welcome back!</h3>
                         <p>You have successfully logged in.</p>
+                        <button 
+                            className="okay-button" 
+                            onClick={() => navigate('/mainpage')}
+                        >
+                            Okay
+                        </button> {/* Replace Link with button */}
                     </div>
                 )}
             </div>

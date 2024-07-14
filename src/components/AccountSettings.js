@@ -1,22 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { ref, update, remove, get } from 'firebase/database';
+import { deleteUser } from 'firebase/auth';
+import { auth, database } from './firebase'; // Make sure this path is correct
 import Headerr from './Headerr';
 
 function AccountSettings() {
-  const [name, setName] = useState('[User Name]');
-  const [address, setAddress] = useState('[User Address]');
-  const [phaseNumber, setPhaseNumber] = useState('[Phase Number]');
-  const [houseNumber, setHouseNumber] = useState('[House Number]');
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [phaseNumber, setPhaseNumber] = useState('');
+  const [houseNumber, setHouseNumber] = useState('');
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    const user = auth.currentUser;
+    if (user) {
+      setUserId(user.uid);
+      // Fetch user data and set initial state
+      const userRef = ref(database, 'users/' + user.uid);
+      get(userRef).then((snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          setName(data.name);
+          setAddress(data.address);
+          setPhaseNumber(data.phase);
+          setHouseNumber(data.houseNumber);
+        }
+      }).catch((error) => {
+        console.error("Error fetching user data: ", error);
+      });
+    }
+  }, []);
 
   const handleSave = (e) => {
     e.preventDefault();
-    // Add save logic
-    alert('Changes saved.');
+    if (userId) {
+      update(ref(database, 'users/' + userId), {
+        name,
+        address,
+        phase: phaseNumber,
+        houseNumber
+      }).then(() => {
+        alert('Changes saved.');
+      }).catch((error) => {
+        alert('Failed to save changes. Please try again.');
+      });
+    }
   };
 
   const handleDeleteAccount = () => {
     if (window.confirm('Are you sure you want to delete your account?')) {
-      // Add delete account logic
-      alert('Account deleted.');
+      const user = auth.currentUser;
+      if (user) {
+        remove(ref(database, 'users/' + user.uid))
+          .then(() => {
+            return deleteUser(user);
+          })
+          .then(() => {
+            alert('Account deleted.');
+          })
+          .catch((error) => {
+            alert('Failed to delete account. Please try again.');
+          });
+      }
     }
   };
 

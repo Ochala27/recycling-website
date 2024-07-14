@@ -1,4 +1,7 @@
+// RequestPickup.js
 import React, { useState } from 'react';
+import { ref, set } from 'firebase/database';
+import { database } from './firebase'; // Adjust the import path as needed
 import Headerr from './Headerr';
 
 const RequestPickup = () => {
@@ -43,8 +46,17 @@ const RequestPickup = () => {
             setError('House number must be one capital letter "H" followed by two numbers.');
             return;
         }
-        setSubmitted(true);
-        setError('');
+        
+        // Save request to Firebase
+        const pickupsRef = ref(database, 'pickups/' + Date.now()); // Use a timestamp as unique ID
+        set(pickupsRef, formData)
+            .then(() => {
+                setSubmitted(true);
+                setError('');
+            })
+            .catch((error) => {
+                setError('Failed to save the request. Please try again.');
+            });
     };
 
     const handleBackToHome = () => {
@@ -58,6 +70,7 @@ const RequestPickup = () => {
                 <h2>Request Pick Up</h2>
                 {!submitted ? (
                     <form onSubmit={handleSubmit}>
+                        {/* Form fields as before */}
                         <div className="form-group">
                             <label htmlFor="name">Customer Name:</label>
                             <input

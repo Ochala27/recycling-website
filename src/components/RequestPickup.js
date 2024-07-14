@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from './firebase'; // Import Firebase authentication
 import Header from './Header';
-import ForgotPassword from './Forgetpassword'; // Import the ForgotPassword component
+import ForgotPassword from './Forgetpassword';
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -11,9 +13,9 @@ const Login = () => {
 
     const [loggedIn, setLoggedIn] = useState(false);
     const [error, setError] = useState('');
-    const [showForgotPassword, setShowForgotPassword] = useState(false); // State to handle view switch
+    const [showForgotPassword, setShowForgotPassword] = useState(false);
 
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -23,24 +25,21 @@ const Login = () => {
         });
     };
 
-    const validatePassword = (password) => {
-        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
-        return passwordRegex.test(password);
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (validatePassword(formData.password)) {
-            setLoggedIn(true);
-            setError('');
-            setFormData({ email: '', password: '' }); // Clear form fields
-        } else {
-            setError('Invalid password. It must be at least 8 characters long, contain one uppercase letter, and one symbol.');
-        }
+        signInWithEmailAndPassword(auth, formData.email, formData.password)
+            .then(() => {
+                setLoggedIn(true);
+                setError('');
+                setFormData({ email: '', password: '' });
+            })
+            .catch((error) => {
+                setError('Invalid email or password.');
+            });
     };
 
     const handleForgotPassword = () => {
-        setShowForgotPassword(true); // Show forgot password form
+        setShowForgotPassword(true);
     };
 
     const isFormValid = formData.email && formData.password;
@@ -93,7 +92,7 @@ const Login = () => {
                             onClick={() => navigate('/mainpage')}
                         >
                             Okay
-                        </button> {/* Replace Link with button */}
+                        </button>
                     </div>
                 )}
             </div>

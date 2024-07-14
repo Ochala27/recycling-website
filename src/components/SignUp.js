@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import Login from './Login'; // Import the Login component
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { ref, set } from 'firebase/database';
+import { auth, database } from './firebase';
 import Header from './Header';
+import Login from './Login';
 
 const SignUp = () => {
     const [formData, setFormData] = useState({
@@ -15,7 +18,7 @@ const SignUp = () => {
 
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
-    const [showLogin, setShowLogin] = useState(false); // State to handle view switch
+    const [showLogin, setShowLogin] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -61,10 +64,26 @@ const SignUp = () => {
         return true;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (validateForm()) {
-            setSubmitted(true);
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+                const user = userCredential.user;
+                
+                // Store user details in Realtime Database
+                await set(ref(database, 'users/' + user.uid), {
+                    name: formData.name,
+                    email: formData.email,
+                    address: formData.address,
+                    phase: formData.phase,
+                    houseNumber: formData.houseNumber
+                });
+
+                setSubmitted(true);
+            } catch (error) {
+                setError('Failed to create an account. Please try again.');
+            }
         }
     };
 

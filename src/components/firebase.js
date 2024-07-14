@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {

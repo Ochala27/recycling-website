@@ -39,32 +39,57 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### 'npm install firebase' Firebase Installation Guide
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Step 1: Create a Firebase Project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Go to the [Firebase Console](https://console.firebase.google.com/).
+2. Click on "Add Project".
+3. Follow the prompts to create a new project.
 
-### Code Splitting
+## Step 2: Register Your App with Firebase
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. In the Firebase Console, click on the project you created.
+2. Click on the web icon (`</>`) to register a web app.
+3. Follow the instructions and note down the Firebase configuration details (API key, Auth domain, etc.).
 
-### Analyzing the Bundle Size
+## Step 3: Install Firebase SDK
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Open a terminal and navigate to your project directory. Run the following command to install Firebase:
 
-### Making a Progressive Web App
+### Usage Guidelines
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Request Pickup
 
-### Advanced Configuration
+1. Navigate to the Request Pickup page.
+2. Fill out the form with your details and preferred pickup date and time.
+3. Submit the form to request a pickup.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### View Pickup History
 
-### Deployment
+1. Navigate to the Pickup History page.
+2. View the list of all your previous pickups.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Manage Account Settings
 
-### `npm run build` fails to minify
+1. Navigate to the Account Settings page.
+2. Update your name, address, phase number, and house number as needed.
+3. Save changes or delete your account if desired.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Track Recycling Stats
+
+1. Navigate to the Dashboard Overview page.
+2. View your total recycled amount and earned bonus points.
+3. Convert recycled materials to bonus points when eligible.
+
+### Overview of the project
+
+This is a web application for a recycling platform where users can manage their recycling activities. Users can request pickups, view their recycling history, manage their account settings, and track their recycling progress to earn bonus points.
+
+## Features
+
+- User authentication with Firebase
+- Request and track recycling pickups
+- View recycling history
+- Manage account settings
+- Track recycling stats and convert recycled materials into bonus points

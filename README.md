@@ -86,6 +86,20 @@ Open a terminal and navigate to your project directory. Run the following comman
 
 This is a web application for a recycling platform where users can manage their recycling activities. Users can request pickups, view their recycling history, manage their account settings, and track their recycling progress to earn bonus points.
 
+## Architecture
+
+- Frontend: React For building the user interface.
+- Backend/Database:Firebase For managing the database and user   authentication.
+- Development Tools:VS Code For writing and managing your code and Git For version control.
+
+##  Data Flow:
+- User sign-up data -> Firebase Authentication -> Firestore.
+- User login data -> Firebase Authentication -> Fetch user profile from  Firestore -> Display on dashboard.
+- Waste data (in Lbs) -> Firestore -> Calculate bonus points -> Update user profile in Firestore.
+- Fetch profile details and points -> Display on user dashboard.
+- Redeem points for products -> Update points balance in Firestore -> Record redeemed rewards.
+
+
 ## Features
 
 - User authentication with Firebase

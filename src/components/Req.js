@@ -1,7 +1,6 @@
-// RequestPickup.js
-import React, { useState } from 'react';
-import { ref, set } from 'firebase/database';
-import { database } from './firebase'; // Adjust the import path as needed
+import React, { useState, useEffect } from 'react';
+import { ref, set, get, update } from 'firebase/database';
+import { auth, database } from './firebase'; // Adjust the import path as needed
 import Headerr from './Headerr';
 
 const RequestPickup = () => {
@@ -17,6 +16,24 @@ const RequestPickup = () => {
 
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
+    const [requestCount, setRequestCount] = useState(0);
+    const MAX_REQUESTS = 100;
+
+    useEffect(() => {
+        const fetchRequestCount = async () => {
+            const user = auth.currentUser;
+            if (user) {
+                const userRef = ref(database, `users/${user.uid}`);
+                const snapshot = await get(userRef);
+                if (snapshot.exists()) {
+                    const userData = snapshot.val();
+                    setRequestCount(userData.requestCount || 0);
+                }
+            }
+        };
+
+        fetchRequestCount();
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -36,7 +53,7 @@ const RequestPickup = () => {
         return houseNumberRegex.test(houseNumber);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validatePhaseNumber(formData.phase)) {
             setError('Phase number must be one capital letter "P" followed by two numbers.');
@@ -46,21 +63,48 @@ const RequestPickup = () => {
             setError('House number must be one capital letter "H" followed by two numbers.');
             return;
         }
-        
-        // Save request to Firebase
-        const pickupsRef = ref(database, 'pickups/' + Date.now()); // Use a timestamp as unique ID
-        set(pickupsRef, formData)
-            .then(() => {
-                setSubmitted(true);
-                setError('');
-            })
-            .catch((error) => {
-                setError('Failed to save the request. Please try again.');
-            });
+
+        if (requestCount >= MAX_REQUESTS) {
+            setError('You have reached the maximum number of requests allowed.');
+            return;
+        }
+
+        try {
+            const pickupsRef = ref(database, 'pickups/' + Date.now()); // Use a timestamp as unique ID
+            await set(pickupsRef, formData);
+
+            // Update user bonus and request count
+            const user = auth.currentUser;
+            if (user) {
+                const userRef = ref(database, `users/${user.uid}`);
+                const snapshot = await get(userRef);
+                if (snapshot.exists()) {
+                    const userData = snapshot.val();
+                    const newBonus = (userData.bonus || 0) + 100;
+                    const newRequestCount = (userData.requestCount || 0) + 1;
+                    await update(userRef, { bonus: newBonus, requestCount: newRequestCount });
+                    setRequestCount(newRequestCount);
+                }
+            }
+
+            setSubmitted(true);
+            setError('');
+        } catch (error) {
+            setError('Failed to save the request. Please try again.');
+        }
     };
 
-    const handleBackToHome = () => {
-        window.location.href = '/';
+    const handleMakeAnotherRequest = () => {
+        setSubmitted(false);
+        setFormData({
+            name: '',
+            email: '',
+            address: '',
+            date: '',
+            time: '',
+            phase: '',
+            houseNumber: ''
+        });
     };
 
     return (
@@ -162,7 +206,12 @@ const RequestPickup = () => {
                         <p><strong>House Number:</strong> {formData.houseNumber}</p>
                         <p><strong>Preferred Date:</strong> {formData.date}</p>
                         <p><strong>Preferred Time:</strong> {formData.time}</p>
-                        <button onClick={handleBackToHome}>Back to Home</button>
+                        {requestCount < MAX_REQUESTS && (
+                            <button onClick={handleMakeAnotherRequest}>Make Another Request</button>
+                        )}
+                        {requestCount >= MAX_REQUESTS && (
+                            <p>You have reached the maximum number of requests.</p>
+                        )}
                     </div>
                 )}
             </div>

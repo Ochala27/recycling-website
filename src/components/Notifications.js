@@ -3,7 +3,7 @@ import React from 'react';
 function Notifications() {
   return (
     <ul className="messages">
-      <li>Reminder: Weekly pick-up scheduled for Saturday at 10am.</li>
+      <li>Reminder: 500 bonus for a recycle product!.</li>
       {/* More notifications */}
     </ul>
   );

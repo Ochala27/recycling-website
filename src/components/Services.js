@@ -14,11 +14,10 @@ const Services = () => {
                 <p><strong>Glass or Paper Bin:</strong> For glass bottles, jars, paper products, and cardboard.</p>
                 <p>Each household receives three labeled bins for proper sorting, helping us maximize recycling efforts.</p>
                 <h3>Scheduling Interface</h3>
-                <p><strong>Weekly Pick-Ups:</strong> Bins are collected every Saturday.</p>
-                <p><strong>Emergency Pick-Ups:</strong> Request on-demand service through our website for full bins before the scheduled day.</p>
+                <p><strong>Request for Pick-Ups:</strong> Bins are collected on request.</p>
                 <h3>Rewards Program</h3>
-                <p><strong>Earn Gifts:</strong> Residents earn gifts for each pick-up.</p>
-                <p><strong>Redeem Rewards:</strong> Gifts can be exchanged for eco-friendly products and services.</p>
+                <p><strong>Earn Gifts:</strong> Residents earn bonus for each pick-up.</p>
+                <p><strong>Redeem Rewards:</strong> Bonus can be exchanged for eco-friendly products and services.</p>
             </section>
         </div>
     );

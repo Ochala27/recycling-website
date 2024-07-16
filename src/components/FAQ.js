@@ -22,11 +22,7 @@ const FAQ = () => {
                     </div>
                     <div className="faq-item">
                         <h3>What rewards can I earn?</h3>
-                        <p>Earn points for recyclables, redeemable for eco-friendly products and other rewards.</p>
-                    </div>
-                    <div className="faq-item">
-                        <h3>What if my bins are full before pickup?</h3>
-                        <p>Request an emergency pickup via our website or customer service.</p>
+                        <p>Earn bonus for recyclables, redeemable for eco-friendly products and other rewards.</p>
                     </div>
                 </div>
             </section>

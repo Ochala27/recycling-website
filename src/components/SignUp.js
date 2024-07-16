@@ -13,7 +13,8 @@ const SignUp = () => {
         password: '',
         confirmPassword: '',
         phase: '',
-        houseNumber: ''
+        houseNumber: '',
+        bouns:0
     });
 
     const [submitted, setSubmitted] = useState(false);
@@ -77,7 +78,8 @@ const SignUp = () => {
                     email: formData.email,
                     address: formData.address,
                     phase: formData.phase,
-                    houseNumber: formData.houseNumber
+                    houseNumber: formData.houseNumber,
+                    bouns: formData.bouns
                 });
 
                 setSubmitted(true);

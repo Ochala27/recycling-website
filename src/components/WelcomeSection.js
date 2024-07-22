@@ -31,18 +31,22 @@ const WelcomeSection = () => {
         }
     }, []);
 
+    // Loading state while fetching data
     if (loading) {
         return <p>Loading...</p>;
     }
 
+    // Error state if there's an issue
     if (error) {
         return <p>{error}</p>;
     }
 
+    // Render user data if available
     if (!userData) {
         return null;
     }
 
+    // Display user information
     return (
         <div className="welcome-section">
             <div className="basic-info">

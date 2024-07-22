@@ -1,57 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; // Import React and useState hook
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
-import Header from './Header';
-import ForgotPassword from './Forgetpassword'; // Import the ForgotPassword component
+import Header from './Header'; // Import Header component
+import ForgotPassword from './Forgetpassword'; // Import ForgotPassword component
 
 const Login = () => {
+    // Define state variables
     const [formData, setFormData] = useState({
-        email: '',
-        password: ''
+        email: '', // Initial state for email input
+        password: '' // Initial state for password input
     });
 
-    const [loggedIn, setLoggedIn] = useState(false);
-    const [error, setError] = useState('');
-    const [showForgotPassword, setShowForgotPassword] = useState(false); // State to handle view switch
+    const [loggedIn, setLoggedIn] = useState(false); // State to track if user is logged in
+    const [error, setError] = useState(''); // State to store error messages
+    const [showForgotPassword, setShowForgotPassword] = useState(false); // State to toggle forgot password form
 
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate(); // Initialize useNavigate hook for navigation
 
+    // Handle input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
-            ...formData,
-            [name]: value
+            ...formData, // Spread existing formData
+            [name]: value // Update the changed input
         });
     };
 
+    // Function to validate password strength
     const validatePassword = (password) => {
-        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/; // Regex for password validation
         return passwordRegex.test(password);
     };
 
+    // Handle form submission
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Prevent default form submission behavior
         if (validatePassword(formData.password)) {
-            setLoggedIn(true);
-            setError('');
-            setFormData({ email: '', password: '' }); // Clear form fields
+            setLoggedIn(true); // Set loggedIn state to true on success
+            setError(''); // Clear any existing errors
+            setFormData({ email: '', password: '' }); // Reset form fields
         } else {
-            setError('Invalid password. It must be at least 8 characters long, contain one uppercase letter, and one symbol.');
+            setError('Invalid password. It must be at least 8 characters long, contain one uppercase letter, and one symbol.'); // Set error message for invalid password
         }
     };
 
+    // Handle forgot password click
     const handleForgotPassword = () => {
         setShowForgotPassword(true); // Show forgot password form
     };
 
-    const isFormValid = formData.email && formData.password;
+    // Validate form
+    const isFormValid = formData.email && formData.password; // Check if form inputs are filled
 
     if (showForgotPassword) {
-        return <ForgotPassword />;
+        return <ForgotPassword />; // Render ForgotPassword component if showForgotPassword is true
     }
 
     return (
         <div className="login-section">
-            <Header />
+            <Header /> {/* Render Header component */}
             <div className="login-background">
                 <h2>Login</h2>
                 {!loggedIn ? (
@@ -63,7 +69,7 @@ const Login = () => {
                                 id="email"
                                 name="email"
                                 value={formData.email}
-                                onChange={handleChange}
+                                onChange={handleChange} // Update email state on change
                                 required
                             />
                         </div>
@@ -74,11 +80,11 @@ const Login = () => {
                                 id="password"
                                 name="password"
                                 value={formData.password}
-                                onChange={handleChange}
+                                onChange={handleChange} // Update password state on change
                                 required
                             />
                         </div>
-                        {error && <p className="error-message">{error}</p>}
+                        {error && <p className="error-message">{error}</p>} {/* Display error message if any */}
                         <div className="button-group">
                             <button type="submit" disabled={!isFormValid} className="submit-button">Submit</button>
                             <button type="button" className="forgot-password-button" onClick={handleForgotPassword}>Forgot Password?</button>
@@ -90,10 +96,10 @@ const Login = () => {
                         <p>You have successfully logged in.</p>
                         <button 
                             className="okay-button" 
-                            onClick={() => navigate('/mainpage')}
+                            onClick={() => navigate('/mainpage')} // Navigate to main page on click
                         >
                             Okay
-                        </button> {/* Replace Link with button */}
+                        </button> {/* button */}
                     </div>
                 )}
             </div>
@@ -101,4 +107,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Login; // Export Login component

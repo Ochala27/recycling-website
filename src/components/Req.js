@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ref, set, get, update } from 'firebase/database';
-import { auth, database } from './firebase'; // Adjust the import path as needed
-import Headerr from './Headerr';
+import { auth, database } from './firebase'; // Import Firebase authentication and database
+import Headerr from './Headerr'; // Import Headerr component
 
 const RequestPickup = () => {
+    // State to handle form data
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -14,11 +15,13 @@ const RequestPickup = () => {
         houseNumber: ''
     });
 
+    // State to track form submission status, errors, and request count
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
     const [requestCount, setRequestCount] = useState(0);
-    const MAX_REQUESTS = 100;
+    const MAX_REQUESTS = 100; // Maximum allowed requests
 
+    // Fetch the current request count for the logged-in user
     useEffect(() => {
         const fetchRequestCount = async () => {
             const user = auth.currentUser;
@@ -32,9 +35,10 @@ const RequestPickup = () => {
             }
         };
 
-        fetchRequestCount();
+        fetchRequestCount(); // Call the function to fetch the request count
     }, []);
 
+    // Handle form input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -43,16 +47,19 @@ const RequestPickup = () => {
         });
     };
 
+    // Validate phase number (format: PXX)
     const validatePhaseNumber = (phase) => {
         const phaseRegex = /^P\d{2}$/;
         return phaseRegex.test(phase);
     };
 
+    // Validate house number (format: HXX)
     const validateHouseNumber = (houseNumber) => {
         const houseNumberRegex = /^H\d{2}$/;
         return houseNumberRegex.test(houseNumber);
     };
 
+    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validatePhaseNumber(formData.phase)) {
@@ -70,6 +77,7 @@ const RequestPickup = () => {
         }
 
         try {
+            // Save the request data in the database
             const pickupsRef = ref(database, 'pickups/' + Date.now()); // Use a timestamp as unique ID
             await set(pickupsRef, formData);
 
@@ -87,13 +95,14 @@ const RequestPickup = () => {
                 }
             }
 
-            setSubmitted(true);
-            setError('');
+            setSubmitted(true); // Mark form as submitted
+            setError(''); // Clear any errors
         } catch (error) {
             setError('Failed to save the request. Please try again.');
         }
     };
 
+    // Handle "Make Another Request" button click
     const handleMakeAnotherRequest = () => {
         setSubmitted(false);
         setFormData({
@@ -109,12 +118,12 @@ const RequestPickup = () => {
 
     return (
         <div className="request-pickup-section">
-            <Headerr />
+            <Headerr /> {/* Render Headerr component */}
             <div className="request-pickup-background">
                 <h2>Request Pick Up</h2>
                 {!submitted ? (
                     <form onSubmit={handleSubmit}>
-                        {/* Form fields as before */}
+                        {/* Form fields for user input */}
                         <div className="form-group">
                             <label htmlFor="name">Customer Name:</label>
                             <input
@@ -219,4 +228,4 @@ const RequestPickup = () => {
     );
 };
 
-export default RequestPickup;
+export default RequestPickup; // Export RequestPickup component

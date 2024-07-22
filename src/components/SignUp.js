@@ -14,7 +14,7 @@ const SignUp = () => {
         confirmPassword: '',
         phase: '',
         houseNumber: '',
-        bouns:0
+        bonus: 0 // Corrected typo in bonus state name
     });
 
     const [submitted, setSubmitted] = useState(false);
@@ -79,7 +79,7 @@ const SignUp = () => {
                     address: formData.address,
                     phase: formData.phase,
                     houseNumber: formData.houseNumber,
-                    bouns: formData.bouns
+                    bonus: formData.bonus // Corrected state variable name
                 });
 
                 setSubmitted(true);

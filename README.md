@@ -59,32 +59,41 @@ Open a terminal and navigate to your project directory. Run the following comman
 
 ### Usage Guidelines
 
+### Sign up
+
+# Form Fields
+- Name: Collect user's full name.
+- Email: Collect user's email address.
+- Password: Collect a secure password 
+- Fields: Address, phase numbe amd house number.
+
+### Login Component
+
+# Form Fields
+Email: Collect user's email address.
+Password: Collect user's password.
+
 ### Request Pickup
 
-1. Navigate to the Request Pickup page.
-2. Fill out the form with your details and preferred pickup date and time.
-3. Submit the form to request a pickup.
+- Navigate to the Request Pickup page.
+- Fill out the form with your details and preferred pickup date and time.
+- Submit the form to request a pickup.
+-  Earn bonus for a requesting pickup.
 
 ### View Pickup History
 
-1. Navigate to the Pickup History page.
-2. View the list of all your previous pickups.
+- Navigate to the Pickup History page.
+- View the list of all your previous pickups.
 
 ### Manage Account Settings
 
-1. Navigate to the Account Settings page.
-2. Update your name, address, phase number, and house number as needed.
-3. Save changes or delete your account if desired.
-
-### Track Recycling Stats
-
-1. Navigate to the Dashboard Overview page.
-2. View your total recycled amount and earned bonus points.
-3. Convert recycled materials to bonus points when eligible.
+- Navigate to the Account Settings page.
+- Update your name, address, phase number, and house number as needed.
+- Save changes or delete your account if desired.
 
 ### Overview of the project
 
-This is a web application for a recycling platform where users can manage their recycling activities. Users can request pickups, view their recycling history, manage their account settings, and track their recycling progress to earn bonus points.
+This is a web application for a recycling platform where users can manage their recycling activities. Users can request pickups and earn bonus, view their  request pickups history, manage their account settings.
 
 ## Architecture
 
@@ -96,8 +105,8 @@ This is a web application for a recycling platform where users can manage their 
 - User sign-up data -> Firebase Authentication -> Firestore.
 - User login data -> Firebase Authentication -> Fetch user profile from  Firestore -> Display on dashboard.
 - Waste data (in Lbs) -> Firestore -> Calculate bonus points -> Update user profile in Firestore.
-- Fetch profile details and points -> Display on user dashboard.
-- Redeem points for products -> Update points balance in Firestore -> Record redeemed rewards.
+- Fetch profile details and bonus -> Display on user dashboard.
+- Redeem points for products -> Update points balance in Firestore
 
 
 ## Features
@@ -105,5 +114,5 @@ This is a web application for a recycling platform where users can manage their 
 - User authentication with Firebase
 - Request and track recycling pickups
 - View recycling history
+- Earn bonus by requesting for pick-ups
 - Manage account settings
-- Track recycling stats and convert recycled materials into bonus points

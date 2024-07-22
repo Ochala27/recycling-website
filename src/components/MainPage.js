@@ -7,7 +7,6 @@ function MainContent() {
   return (
     <main>
       <section id="headerr" className="section">
-        <h2>Header Section</h2>
         <Headerr />
       </section>
       <section id="overview" className="section">

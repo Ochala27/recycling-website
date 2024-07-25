@@ -70,8 +70,8 @@ Open a terminal and navigate to your project directory. Run the following comman
 ### Login Component
 
 # Form Fields
-Email: Collect user's email address.
-Password: Collect user's password.
+- Email: Collect user's email address.
+- Password: Collect user's password.
 
 ### Request Pickup
 

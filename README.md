@@ -29,8 +29,9 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Team members
+### `Team members`
 Philip Ugbede Ojo Onuche - Project Manager/ Environmental Chemist
+
 Onuche Paul - Software Engineer
 
 ### `npm run eject`
